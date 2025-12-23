@@ -1,4 +1,109 @@
 // ========================
+// TEMAS SAZONAIS
+// ========================
+function detectarTemaSazonal() {
+    const hoje = new Date();
+    const mes = hoje.getMonth() + 1; // 1-12
+    const dia = hoje.getDate();
+    
+    // Natal (dezembro)
+    if (mes === 12) {
+        return {
+            nome: 'natal',
+            titulo: 'Natal Mágico',
+            subtitulo: 'Presentes especiais para quem você ama',
+            cores: { primary: '#c41e3a', secondary: '#165b33', accent: '#ffd700' },
+            emoji: '🎄',
+            desconto: 'Até 30% OFF em produtos selecionados'
+        };
+    }
+    
+    // Páscoa (março 15 - abril 30)
+    if ((mes === 3 && dia >= 15) || (mes === 4 && dia <= 30)) {
+        return {
+            nome: 'pascoa',
+            titulo: 'Páscoa de Beleza',
+            subtitulo: 'Renove-se nesta páscoa com nossos produtos',
+            cores: { primary: '#9b59b6', secondary: '#f39c12', accent: '#ffb6d9' },
+            emoji: '🐰',
+            desconto: 'Kits especiais com até 25% OFF'
+        };
+    }
+    
+    // Dia das Mães (maio)
+    if (mes === 5) {
+        return {
+            nome: 'maes',
+            titulo: 'Dia das Mães',
+            subtitulo: 'Presenteie quem mais ama com carinho e beleza',
+            cores: { primary: '#e91e63', secondary: '#ff6b9d', accent: '#ffc0cb' },
+            emoji: '💐',
+            desconto: 'Até 40% OFF + Frete Grátis'
+        };
+    }
+    
+    // Dia dos Namorados (junho 1-15)
+    if (mes === 6 && dia <= 15) {
+        return {
+            nome: 'namorados',
+            titulo: 'Dia dos Namorados',
+            subtitulo: 'Amor em cada detalhe, beleza em cada presente',
+            cores: { primary: '#ff1744', secondary: '#f50057', accent: '#ff4081' },
+            emoji: '❤️',
+            desconto: 'Kits Românticos com 35% OFF'
+        };
+    }
+    
+    // Dia dos Pais (agosto)
+    if (mes === 8) {
+        return {
+            nome: 'pais',
+            titulo: 'Dia dos Pais',
+            subtitulo: 'Cuidado e elegância para os pais especiais',
+            cores: { primary: '#1565c0', secondary: '#0d47a1', accent: '#42a5f5' },
+            emoji: '👔',
+            desconto: 'Perfumes masculinos com até 30% OFF'
+        };
+    }
+    
+    // Dia das Crianças (outubro 1-15)
+    if (mes === 10 && dia <= 15) {
+        return {
+            nome: 'criancas',
+            titulo: 'Dia das Crianças',
+            subtitulo: 'Produtos especiais para os pequenos',
+            cores: { primary: '#ff9800', secondary: '#ffc107', accent: '#ffeb3b' },
+            emoji: '🎈',
+            desconto: 'Linha infantil com até 25% OFF'
+        };
+    }
+    
+    // Black Friday (novembro 15-30)
+    if (mes === 11 && dia >= 15) {
+        return {
+            nome: 'blackfriday',
+            titulo: 'Black Friday',
+            subtitulo: 'Os maiores descontos do ano estão aqui!',
+            cores: { primary: '#000000', secondary: '#ff6600', accent: '#ffd700' },
+            emoji: '🔥',
+            desconto: 'Até 70% OFF em toda a loja'
+        };
+    }
+    
+    // Tema padrão
+    return {
+        nome: 'padrao',
+        titulo: 'Beleza e Elegância',
+        subtitulo: 'Descubra os melhores produtos de beleza',
+        cores: { primary: '#c94b7a', secondary: '#a0365e', accent: '#e87ca5' },
+        emoji: '✨',
+        desconto: 'Ganhe 10% OFF na primeira compra'
+    };
+}
+
+const temaSazonal = detectarTemaSazonal();
+
+// ========================
 // DATABASE DE PRODUTOS
 // ========================
 const produtos = [
@@ -47,10 +152,81 @@ let freteEscolhido = null;
 // INICIALIZAÇÃO
 // ========================
 document.addEventListener('DOMContentLoaded', () => {
+    aplicarTemaSazonal();
     inicializarPagina();
     atualizarContadorCarrinho();
     atualizarInfoUsuario();
 });
+
+function aplicarTemaSazonal() {
+    // Adicionar classe do tema ao body
+    document.body.classList.add(`tema-${temaSazonal.nome}`);
+    
+    // Atualizar cores CSS
+    document.documentElement.style.setProperty('--primary-color', temaSazonal.cores.primary);
+    document.documentElement.style.setProperty('--accent-color', temaSazonal.cores.accent);
+    
+    // Atualizar hero banner
+    const heroContent = document.querySelector('.hero-content h2');
+    if (heroContent) {
+        heroContent.innerHTML = `${temaSazonal.emoji} ${temaSazonal.titulo}`;
+    }
+    
+    const heroSubtitle = document.querySelector('.hero-content p');
+    if (heroSubtitle) {
+        heroSubtitle.textContent = temaSazonal.subtitulo;
+    }
+    
+    // Atualizar barra superior
+    const topBarSpans = document.querySelectorAll('.top-bar-content span');
+    if (topBarSpans.length > 1) {
+        topBarSpans[1].innerHTML = `<i class="fas fa-gift"></i> ${temaSazonal.desconto}`;
+    }
+    
+    // Adicionar decorações sazonais
+    adicionarDecoracoesSazonais();
+}
+
+function adicionarDecoracoesSazonais() {
+    const header = document.querySelector('header');
+    if (!header) return;
+    
+    // Remover decorações antigas
+    const decoracoesAntigas = document.querySelectorAll('.decoracao-sazonal');
+    decoracoesAntigas.forEach(dec => dec.remove());
+    
+    // Adicionar novas decorações baseadas no tema
+    const decoracao = document.createElement('div');
+    decoracao.className = 'decoracao-sazonal';
+    
+    switch(temaSazonal.nome) {
+        case 'natal':
+            decoracao.innerHTML = '❄️🎄🎅🎁⛄';
+            break;
+        case 'pascoa':
+            decoracao.innerHTML = '🐰🥚🌸🐣🌷';
+            break;
+        case 'maes':
+            decoracao.innerHTML = '💐🌹💕👩‍👧‍👦🌺';
+            break;
+        case 'namorados':
+            decoracao.innerHTML = '❤️💘💝💖💗';
+            break;
+        case 'pais':
+            decoracao.innerHTML = '👔🎩👨‍👧‍👦💼🏆';
+            break;
+        case 'criancas':
+            decoracao.innerHTML = '🎈🎪🎨🎮🧸';
+            break;
+        case 'blackfriday':
+            decoracao.innerHTML = '🔥💰🛍️💥⚡';
+            break;
+    }
+    
+    if (decoracao.innerHTML) {
+        header.appendChild(decoracao);
+    }
+}
 
 function inicializarPagina() {
     const pagina = window.location.pathname.split('/').pop();

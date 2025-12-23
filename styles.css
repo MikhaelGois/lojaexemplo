@@ -2211,6 +2211,242 @@ footer {
     }
 }
 
+/* ========================================
+   TEMAS SAZONAIS
+======================================== */
+
+/* Decorações Sazonais */
+.decoracao-sazonal {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    font-size: 2rem;
+    z-index: 999;
+    opacity: 0.3;
+    pointer-events: none;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Tema Natal */
+body.tema-natal {
+    background-image: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)),
+                      repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(196, 30, 58, 0.05) 35px, rgba(196, 30, 58, 0.05) 70px);
+}
+
+body.tema-natal .hero {
+    background: linear-gradient(135deg, #c41e3a 0%, #165b33 100%);
+}
+
+body.tema-natal .category-icon,
+body.tema-natal .btn-primary {
+    background: linear-gradient(135deg, #c41e3a, #ffd700);
+}
+
+body.tema-natal .product-card:hover {
+    box-shadow: 0 8px 25px rgba(196, 30, 58, 0.3);
+}
+
+/* Tema Páscoa */
+body.tema-pascoa {
+    background-image: radial-gradient(circle at 20% 50%, rgba(155, 89, 182, 0.03) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 80%, rgba(243, 156, 18, 0.03) 0%, transparent 50%);
+}
+
+body.tema-pascoa .hero {
+    background: linear-gradient(135deg, #9b59b6 0%, #f39c12 100%);
+}
+
+body.tema-pascoa .category-icon,
+body.tema-pascoa .btn-primary {
+    background: linear-gradient(135deg, #9b59b6, #ffb6d9);
+}
+
+/* Tema Dia das Mães */
+body.tema-maes .hero {
+    background: linear-gradient(135deg, #e91e63 0%, #ffc0cb 100%);
+}
+
+body.tema-maes .category-icon,
+body.tema-maes .btn-primary {
+    background: linear-gradient(135deg, #e91e63, #ff6b9d);
+}
+
+body.tema-maes::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle, rgba(233, 30, 99, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Tema Dia dos Namorados */
+body.tema-namorados {
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 50px, rgba(255, 23, 68, 0.03) 50px, rgba(255, 23, 68, 0.03) 100px);
+}
+
+body.tema-namorados .hero {
+    background: linear-gradient(135deg, #ff1744 0%, #f50057 100%);
+}
+
+body.tema-namorados .category-icon,
+body.tema-namorados .btn-primary {
+    background: linear-gradient(135deg, #ff1744, #ff4081);
+}
+
+body.tema-namorados .product-card::before {
+    content: '♥';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: rgba(255, 23, 68, 0.2);
+    font-size: 3rem;
+    pointer-events: none;
+}
+
+/* Tema Dia dos Pais */
+body.tema-pais .hero {
+    background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+}
+
+body.tema-pais .category-icon,
+body.tema-pais .btn-primary {
+    background: linear-gradient(135deg, #1565c0, #42a5f5);
+}
+
+body.tema-pais {
+    background-image: repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(21, 101, 192, 0.02) 50px, rgba(21, 101, 192, 0.02) 100px);
+}
+
+/* Tema Dia das Crianças */
+body.tema-criancas {
+    background-image: radial-gradient(circle at 10% 20%, rgba(255, 152, 0, 0.05) 0%, transparent 50%),
+                      radial-gradient(circle at 90% 80%, rgba(255, 193, 7, 0.05) 0%, transparent 50%),
+                      radial-gradient(circle at 50% 50%, rgba(255, 235, 59, 0.05) 0%, transparent 50%);
+}
+
+body.tema-criancas .hero {
+    background: linear-gradient(135deg, #ff9800 0%, #ffc107 100%);
+}
+
+body.tema-criancas .category-icon,
+body.tema-criancas .btn-primary {
+    background: linear-gradient(135deg, #ff9800, #ffeb3b);
+}
+
+body.tema-criancas .product-card {
+    border: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+body.tema-criancas .product-card:hover {
+    border-color: #ff9800;
+    transform: translateY(-5px) rotate(1deg);
+}
+
+/* Tema Black Friday */
+body.tema-blackfriday {
+    background-color: #1a1a1a;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 102, 0, 0.05) 10px, rgba(255, 102, 0, 0.05) 20px);
+}
+
+body.tema-blackfriday .hero {
+    background: linear-gradient(135deg, #000000 0%, #ff6600 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+body.tema-blackfriday .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 215, 0, 0.1) 10px, rgba(255, 215, 0, 0.1) 20px);
+    animation: slide 20s linear infinite;
+}
+
+@keyframes slide {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+}
+
+body.tema-blackfriday .navbar,
+body.tema-blackfriday .product-card,
+body.tema-blackfriday .cart-summary,
+body.tema-blackfriday .filters-sidebar {
+    background-color: #2a2a2a;
+    color: #fff;
+}
+
+body.tema-blackfriday .category-icon,
+body.tema-blackfriday .btn-primary {
+    background: linear-gradient(135deg, #000000, #ff6600);
+}
+
+body.tema-blackfriday .product-badge {
+    background-color: #ff6600;
+    animation: pulse 1s ease-in-out infinite;
+}
+
+body.tema-blackfriday .product-card::after {
+    content: 'HOT';
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #ff6600;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    transform: rotate(15deg);
+}
+
+/* Animações especiais */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Badge de desconto sazonal */
+.seasonal-badge {
+    position: fixed;
+    top: 120px;
+    right: 20px;
+    background: var(--primary-color);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 998;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
 @media (max-width: 480px) {
     .top-bar-content {
         flex-direction: column;
