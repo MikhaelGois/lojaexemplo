@@ -3,34 +3,34 @@
 // ========================
 const produtos = [
     // Perfumes
-    { id: 1, nome: 'Perfume Floral Elegance', categoria: 'perfumes', preco: 189.90, imagem: 'https://via.placeholder.com/300x300/FFB6C1/333?text=Perfume+1', descricao: 'Fragrância floral sofisticada com notas de jasmim e rosas' },
-    { id: 2, nome: 'Perfume Intense Noir', categoria: 'perfumes', preco: 249.90, imagem: 'https://via.placeholder.com/300x300/708090/fff?text=Perfume+2', descricao: 'Perfume amadeirado intenso com toque de especiarias' },
-    { id: 3, nome: 'Perfume Fresh Summer', categoria: 'perfumes', preco: 159.90, imagem: 'https://via.placeholder.com/300x300/87CEEB/333?text=Perfume+3', descricao: 'Fragrância cítrica refrescante perfeita para o dia a dia' },
-    { id: 4, nome: 'Perfume Glamour Night', categoria: 'perfumes', preco: 299.90, imagem: 'https://via.placeholder.com/300x300/DDA0DD/333?text=Perfume+4', descricao: 'Perfume sofisticado com notas florais e frutadas' },
+    { id: 1, nome: 'Perfume Floral Elegance', categoria: 'perfumes', preco: 189.90, imagem: 'https://placehold.co/300x300/FFB6C1/333333?text=Perfume+Floral', descricao: 'Fragrância floral sofisticada com notas de jasmim e rosas' },
+    { id: 2, nome: 'Perfume Intense Noir', categoria: 'perfumes', preco: 249.90, imagem: 'https://placehold.co/300x300/708090/ffffff?text=Perfume+Noir', descricao: 'Perfume amadeirado intenso com toque de especiarias' },
+    { id: 3, nome: 'Perfume Fresh Summer', categoria: 'perfumes', preco: 159.90, imagem: 'https://placehold.co/300x300/87CEEB/333333?text=Fresh+Summer', descricao: 'Fragrância cítrica refrescante perfeita para o dia a dia' },
+    { id: 4, nome: 'Perfume Glamour Night', categoria: 'perfumes', preco: 299.90, imagem: 'https://placehold.co/300x300/DDA0DD/333333?text=Glamour+Night', descricao: 'Perfume sofisticado com notas florais e frutadas' },
     
     // Maquiagem
-    { id: 5, nome: 'Base Líquida HD', categoria: 'maquiagem', preco: 79.90, imagem: 'https://via.placeholder.com/300x300/F5DEB3/333?text=Base', descricao: 'Base de alta cobertura com acabamento natural' },
-    { id: 6, nome: 'Paleta de Sombras Rose', categoria: 'maquiagem', preco: 129.90, imagem: 'https://via.placeholder.com/300x300/FFC0CB/333?text=Paleta', descricao: '12 cores incríveis para looks deslumbrantes' },
-    { id: 7, nome: 'Batom Matte Power', categoria: 'maquiagem', preco: 49.90, imagem: 'https://via.placeholder.com/300x300/DC143C/fff?text=Batom', descricao: 'Batom de longa duração com acabamento matte' },
-    { id: 8, nome: 'Máscara de Cílios Volume', categoria: 'maquiagem', preco: 69.90, imagem: 'https://via.placeholder.com/300x300/000000/fff?text=Mascara', descricao: 'Volume e definição extremos para seus cílios' },
+    { id: 5, nome: 'Base Líquida HD', categoria: 'maquiagem', preco: 79.90, imagem: 'https://placehold.co/300x300/F5DEB3/333333?text=Base+HD', descricao: 'Base de alta cobertura com acabamento natural' },
+    { id: 6, nome: 'Paleta de Sombras Rose', categoria: 'maquiagem', preco: 129.90, imagem: 'https://placehold.co/300x300/FFC0CB/333333?text=Paleta+Rose', descricao: '12 cores incríveis para looks deslumbrantes' },
+    { id: 7, nome: 'Batom Matte Power', categoria: 'maquiagem', preco: 49.90, imagem: 'https://placehold.co/300x300/DC143C/ffffff?text=Batom+Matte', descricao: 'Batom de longa duração com acabamento matte' },
+    { id: 8, nome: 'Máscara de Cílios Volume', categoria: 'maquiagem', preco: 69.90, imagem: 'https://placehold.co/300x300/000000/ffffff?text=Mascara', descricao: 'Volume e definição extremos para seus cílios' },
     
     // Skincare
-    { id: 9, nome: 'Sérum Vitamina C', categoria: 'skincare', preco: 119.90, imagem: 'https://via.placeholder.com/300x300/FFD700/333?text=Serum+C', descricao: 'Sérum iluminador anti-idade com vitamina C' },
-    { id: 10, nome: 'Hidratante Facial Intensivo', categoria: 'skincare', preco: 89.90, imagem: 'https://via.placeholder.com/300x300/ADD8E6/333?text=Hidratante', descricao: 'Hidratação profunda com ácido hialurônico' },
-    { id: 11, nome: 'Protetor Solar FPS 60', categoria: 'skincare', preco: 79.90, imagem: 'https://via.placeholder.com/300x300/F0E68C/333?text=Protetor', descricao: 'Proteção solar avançada com toque seco' },
-    { id: 12, nome: 'Esfoliante Facial', categoria: 'skincare', preco: 59.90, imagem: 'https://via.placeholder.com/300x300/98FB98/333?text=Esfoliante', descricao: 'Renovação celular com micropartículas naturais' },
+    { id: 9, nome: 'Sérum Vitamina C', categoria: 'skincare', preco: 119.90, imagem: 'https://placehold.co/300x300/FFD700/333333?text=Serum+Vit+C', descricao: 'Sérum iluminador anti-idade com vitamina C' },
+    { id: 10, nome: 'Hidratante Facial Intensivo', categoria: 'skincare', preco: 89.90, imagem: 'https://placehold.co/300x300/ADD8E6/333333?text=Hidratante', descricao: 'Hidratação profunda com ácido hialurônico' },
+    { id: 11, nome: 'Protetor Solar FPS 60', categoria: 'skincare', preco: 79.90, imagem: 'https://placehold.co/300x300/F0E68C/333333?text=Protetor+FPS60', descricao: 'Proteção solar avançada com toque seco' },
+    { id: 12, nome: 'Esfoliante Facial', categoria: 'skincare', preco: 59.90, imagem: 'https://placehold.co/300x300/98FB98/333333?text=Esfoliante', descricao: 'Renovação celular com micropartículas naturais' },
     
     // Cabelos
-    { id: 13, nome: 'Shampoo Hidratação Profunda', categoria: 'cabelos', preco: 45.90, imagem: 'https://via.placeholder.com/300x300/9370DB/fff?text=Shampoo', descricao: 'Limpeza suave com hidratação intensa' },
-    { id: 14, nome: 'Condicionador Nutrição', categoria: 'cabelos', preco: 49.90, imagem: 'https://via.placeholder.com/300x300/BA55D3/fff?text=Condicionador', descricao: 'Nutrição e maciez extrema para seus cabelos' },
-    { id: 15, nome: 'Máscara Capilar Reparadora', categoria: 'cabelos', preco: 79.90, imagem: 'https://via.placeholder.com/300x300/8B4789/fff?text=Mascara', descricao: 'Tratamento intensivo para cabelos danificados' },
-    { id: 16, nome: 'Óleo Capilar Brilho', categoria: 'cabelos', preco: 69.90, imagem: 'https://via.placeholder.com/300x300/FFD700/333?text=Oleo', descricao: 'Brilho e maciez instantâneos' },
+    { id: 13, nome: 'Shampoo Hidratação Profunda', categoria: 'cabelos', preco: 45.90, imagem: 'https://placehold.co/300x300/9370DB/ffffff?text=Shampoo', descricao: 'Limpeza suave com hidratação intensa' },
+    { id: 14, nome: 'Condicionador Nutrição', categoria: 'cabelos', preco: 49.90, imagem: 'https://placehold.co/300x300/BA55D3/ffffff?text=Condicionador', descricao: 'Nutrição e maciez extrema para seus cabelos' },
+    { id: 15, nome: 'Máscara Capilar Reparadora', categoria: 'cabelos', preco: 79.90, imagem: 'https://placehold.co/300x300/8B4789/ffffff?text=Mascara+Capilar', descricao: 'Tratamento intensivo para cabelos danificados' },
+    { id: 16, nome: 'Óleo Capilar Brilho', categoria: 'cabelos', preco: 69.90, imagem: 'https://placehold.co/300x300/FFD700/333333?text=Oleo+Capilar', descricao: 'Brilho e maciez instantâneos' },
     
     // Corpo e Banho
-    { id: 17, nome: 'Loção Corporal Hidratante', categoria: 'corpo', preco: 54.90, imagem: 'https://via.placeholder.com/300x300/FFF0F5/333?text=Locao', descricao: 'Hidratação prolongada com fragrância suave' },
-    { id: 18, nome: 'Sabonete Líquido Premium', categoria: 'corpo', preco: 39.90, imagem: 'https://via.placeholder.com/300x300/E6E6FA/333?text=Sabonete', descricao: 'Limpeza suave e perfumada' },
-    { id: 19, nome: 'Esfoliante Corporal', categoria: 'corpo', preco: 64.90, imagem: 'https://via.placeholder.com/300x300/F0FFF0/333?text=Esfoliante', descricao: 'Renovação e suavidade para sua pele' },
-    { id: 20, nome: 'Body Splash Floral', categoria: 'corpo', preco: 49.90, imagem: 'https://via.placeholder.com/300x300/FFB6C1/333?text=Body+Splash', descricao: 'Fragrância leve e refrescante' }
+    { id: 17, nome: 'Loção Corporal Hidratante', categoria: 'corpo', preco: 54.90, imagem: 'https://placehold.co/300x300/FFF0F5/333333?text=Locao+Corporal', descricao: 'Hidratação prolongada com fragrância suave' },
+    { id: 18, nome: 'Sabonete Líquido Premium', categoria: 'corpo', preco: 39.90, imagem: 'https://placehold.co/300x300/E6E6FA/333333?text=Sabonete', descricao: 'Limpeza suave e perfumada' },
+    { id: 19, nome: 'Esfoliante Corporal', categoria: 'corpo', preco: 64.90, imagem: 'https://placehold.co/300x300/F0FFF0/333333?text=Esfoliante+Body', descricao: 'Renovação e suavidade para sua pele' },
+    { id: 20, nome: 'Body Splash Floral', categoria: 'corpo', preco: 49.90, imagem: 'https://placehold.co/300x300/FFB6C1/333333?text=Body+Splash', descricao: 'Fragrância leve e refrescante' }
 ];
 
 // ========================

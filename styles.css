@@ -6,14 +6,14 @@
 }
 
 :root {
-    --primary-color: #d4145a;
-    --primary-dark: #a01046;
+    --primary-color: #c94b7a;
+    --primary-dark: #a0365e;
     --secondary-color: #2b2b2b;
-    --accent-color: #ff6b9d;
+    --accent-color: #e87ca5;
     --text-color: #333;
     --text-light: #666;
     --bg-color: #fff;
-    --bg-light: #f8f8f8;
+    --bg-light: #fdf8f9;
     --border-color: #e0e0e0;
     --success-color: #28a745;
     --error-color: #dc3545;
@@ -196,11 +196,11 @@ body {
 
 /* Hero Banner */
 .hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #c94b7a 0%, #e87ca5 100%);
     color: white;
     padding: 100px 20px;
     text-align: center;
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23d4145a" width="1200" height="600"/><g fill="%23fff" fill-opacity="0.1"><circle cx="200" cy="100" r="40"/><circle cx="600" cy="400" r="60"/><circle cx="1000" cy="200" r="50"/></g></svg>');
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23c94b7a" width="1200" height="600"/><g fill="%23fff" fill-opacity="0.1"><circle cx="200" cy="100" r="40"/><circle cx="600" cy="400" r="60"/><circle cx="1000" cy="200" r="50"/></g></svg>');
     background-size: cover;
     background-position: center;
 }
