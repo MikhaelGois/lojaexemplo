@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos - Glamour Beauty</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-bar-content">
+                    <span><i class="fas fa-truck"></i> Frete Grátis acima de R$ 199</span>
+                    <span><i class="fas fa-gift"></i> Ganhe 10% OFF na primeira compra</span>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-content">
+                    <div class="logo">
+                        <h1>Glamour Beauty</h1>
+                        <p>Moda & Beleza</p>
+                    </div>
+                    
+                    <div class="search-bar">
+                        <input type="text" id="search-input" placeholder="O que você procura?">
+                        <button id="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                    
+                    <div class="nav-actions">
+                        <a href="login.html" id="user-btn" class="nav-btn">
+                            <i class="fas fa-user"></i>
+                            <span id="user-name">Entrar</span>
+                        </a>
+                        <a href="carrinho.html" class="nav-btn">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-badge" id="cart-count">0</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="nav-menu">
+                    <a href="index.html">Home</a>
+                    <a href="produtos.html?categoria=perfumes">Perfumes</a>
+                    <a href="produtos.html?categoria=maquiagem">Maquiagem</a>
+                    <a href="produtos.html?categoria=skincare">Skincare</a>
+                    <a href="produtos.html?categoria=cabelos">Cabelos</a>
+                    <a href="produtos.html?categoria=corpo">Corpo & Banho</a>
+                    <a href="produtos.html" class="active">Todos os Produtos</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="products-page">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> / <span id="current-category">Produtos</span>
+            </div>
+
+            <div class="products-container">
+                <!-- Sidebar de Filtros -->
+                <aside class="filters-sidebar">
+                    <h3>Filtrar por</h3>
+                    
+                    <div class="filter-section">
+                        <h4>Categorias</h4>
+                        <div class="filter-options">
+                            <label>
+                                <input type="checkbox" name="categoria" value="perfumes"> Perfumes
+                            </label>
+                            <label>
+                                <input type="checkbox" name="categoria" value="maquiagem"> Maquiagem
+                            </label>
+                            <label>
+                                <input type="checkbox" name="categoria" value="skincare"> Skincare
+                            </label>
+                            <label>
+                                <input type="checkbox" name="categoria" value="cabelos"> Cabelos
+                            </label>
+                            <label>
+                                <input type="checkbox" name="categoria" value="corpo"> Corpo & Banho
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h4>Faixa de Preço</h4>
+                        <div class="filter-options">
+                            <label>
+                                <input type="checkbox" name="preco" value="0-50"> Até R$ 50
+                            </label>
+                            <label>
+                                <input type="checkbox" name="preco" value="50-100"> R$ 50 - R$ 100
+                            </label>
+                            <label>
+                                <input type="checkbox" name="preco" value="100-200"> R$ 100 - R$ 200
+                            </label>
+                            <label>
+                                <input type="checkbox" name="preco" value="200-999"> Acima de R$ 200
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h4>Ordenar por</h4>
+                        <select id="sort-select">
+                            <option value="relevancia">Mais Relevantes</option>
+                            <option value="menor-preco">Menor Preço</option>
+                            <option value="maior-preco">Maior Preço</option>
+                            <option value="nome">Nome A-Z</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-secondary" id="clear-filters">Limpar Filtros</button>
+                </aside>
+
+                <!-- Grid de Produtos -->
+                <div class="products-main">
+                    <div class="products-header">
+                        <h2 id="category-title">Todos os Produtos</h2>
+                        <p id="products-count">0 produtos encontrados</p>
+                    </div>
+
+                    <div class="product-grid" id="products-grid">
+                        <!-- Produtos serão carregados via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal do Produto -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content product-modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="product-details">
+                <div class="product-images">
+                    <img id="modal-product-image" src="" alt="">
+                </div>
+                <div class="product-info">
+                    <h2 id="modal-product-name"></h2>
+                    <p class="product-category" id="modal-product-category"></p>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(150 avaliações)</span>
+                    </div>
+                    <p class="product-price" id="modal-product-price"></p>
+                    <p class="product-installment">ou 6x de <span id="modal-installment"></span> sem juros</p>
+                    
+                    <div class="product-description">
+                        <h3>Descrição</h3>
+                        <p id="modal-product-description"></p>
+                    </div>
+
+                    <div class="product-quantity">
+                        <label>Quantidade:</label>
+                        <div class="quantity-control">
+                            <button id="decrease-qty">-</button>
+                            <input type="number" id="product-qty" value="1" min="1" max="10">
+                            <button id="increase-qty">+</button>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-large" id="add-to-cart-modal">
+                        <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                    </button>
+
+                    <div class="product-benefits">
+                        <p><i class="fas fa-truck"></i> Frete grátis acima de R$ 199</p>
+                        <p><i class="fas fa-undo"></i> Troca grátis em até 30 dias</p>
+                        <p><i class="fas fa-shield-alt"></i> Compra 100% segura</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Glamour Beauty</h3>
+                    <p>Sua loja de moda e beleza com os melhores produtos e marcas do mercado.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Institucional</h4>
+                    <ul>
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Trabalhe Conosco</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Atendimento</h4>
+                    <ul>
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Trocas e Devoluções</a></li>
+                        <li><a href="#">Entrega</a></li>
+                        <li><a href="#">Formas de Pagamento</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> 0800 123 4567</li>
+                        <li><i class="fas fa-envelope"></i> contato@glamourbeauty.com.br</li>
+                        <li><i class="fas fa-clock"></i> Seg-Sex: 9h às 18h</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Glamour Beauty - Todos os direitos reservados</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-pix"></i>
+                    <i class="fas fa-barcode"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

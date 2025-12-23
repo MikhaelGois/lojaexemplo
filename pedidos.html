@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Pedidos - Glamour Beauty</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-bar-content">
+                    <span><i class="fas fa-truck"></i> Frete Grátis acima de R$ 199</span>
+                    <span><i class="fas fa-gift"></i> Ganhe 10% OFF na primeira compra</span>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-content">
+                    <div class="logo">
+                        <h1>Glamour Beauty</h1>
+                        <p>Moda & Beleza</p>
+                    </div>
+                    
+                    <div class="search-bar">
+                        <input type="text" id="search-input" placeholder="O que você procura?">
+                        <button id="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                    
+                    <div class="nav-actions">
+                        <a href="login.html" id="user-btn" class="nav-btn">
+                            <i class="fas fa-user"></i>
+                            <span id="user-name">Entrar</span>
+                        </a>
+                        <a href="carrinho.html" class="nav-btn">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-badge" id="cart-count">0</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="nav-menu">
+                    <a href="index.html">Home</a>
+                    <a href="produtos.html?categoria=perfumes">Perfumes</a>
+                    <a href="produtos.html?categoria=maquiagem">Maquiagem</a>
+                    <a href="produtos.html?categoria=skincare">Skincare</a>
+                    <a href="produtos.html?categoria=cabelos">Cabelos</a>
+                    <a href="produtos.html?categoria=corpo">Corpo & Banho</a>
+                    <a href="produtos.html">Todos os Produtos</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="orders-page">
+        <div class="container">
+            <h1>Meus Pedidos</h1>
+
+            <!-- Usuário não logado -->
+            <div id="not-logged-in" class="not-logged-message" style="display: none;">
+                <i class="fas fa-lock"></i>
+                <h2>Área Restrita</h2>
+                <p>Você precisa estar logado para ver seus pedidos</p>
+                <a href="login.html" class="btn btn-primary">Fazer Login</a>
+            </div>
+
+            <!-- Sem pedidos -->
+            <div id="no-orders" class="no-orders-message" style="display: none;">
+                <i class="fas fa-box-open"></i>
+                <h2>Você ainda não fez nenhum pedido</h2>
+                <p>Explore nossa loja e encontre produtos incríveis!</p>
+                <a href="produtos.html" class="btn btn-primary">Ver Produtos</a>
+            </div>
+
+            <!-- Lista de Pedidos -->
+            <div id="orders-list" class="orders-container">
+                <!-- Filtros de Pedidos -->
+                <div class="orders-filters">
+                    <button class="filter-btn active" data-status="all">Todos</button>
+                    <button class="filter-btn" data-status="processing">Em Processamento</button>
+                    <button class="filter-btn" data-status="shipped">Enviado</button>
+                    <button class="filter-btn" data-status="delivered">Entregue</button>
+                    <button class="filter-btn" data-status="cancelled">Cancelado</button>
+                </div>
+
+                <!-- Pedidos -->
+                <div id="orders-grid" class="orders-grid">
+                    <!-- Pedidos serão carregados via JavaScript -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de Detalhes do Pedido -->
+    <div id="order-modal" class="modal">
+        <div class="modal-content order-modal-content">
+            <span class="close-modal">&times;</span>
+            
+            <div class="order-modal-header">
+                <h2>Detalhes do Pedido</h2>
+                <p class="order-modal-number">Pedido: <strong id="modal-order-number"></strong></p>
+            </div>
+
+            <div class="order-modal-body">
+                <div class="order-status-timeline" id="modal-timeline">
+                    <!-- Timeline será carregada via JavaScript -->
+                </div>
+
+                <div class="order-modal-section">
+                    <h3><i class="fas fa-box"></i> Produtos</h3>
+                    <div class="order-modal-products" id="modal-order-products">
+                        <!-- Produtos serão carregados via JavaScript -->
+                    </div>
+                </div>
+
+                <div class="order-modal-section">
+                    <h3><i class="fas fa-map-marker-alt"></i> Endereço de Entrega</h3>
+                    <div class="order-modal-address" id="modal-order-address">
+                        <!-- Endereço será carregado via JavaScript -->
+                    </div>
+                </div>
+
+                <div class="order-modal-section">
+                    <h3><i class="fas fa-credit-card"></i> Pagamento</h3>
+                    <div class="order-modal-payment" id="modal-order-payment">
+                        <!-- Dados de pagamento serão carregados via JavaScript -->
+                    </div>
+                </div>
+
+                <div class="order-modal-section">
+                    <h3><i class="fas fa-receipt"></i> Resumo Financeiro</h3>
+                    <div class="order-modal-summary">
+                        <div class="summary-line">
+                            <span>Subtotal</span>
+                            <span id="modal-subtotal">R$ 0,00</span>
+                        </div>
+                        <div class="summary-line">
+                            <span>Frete</span>
+                            <span id="modal-shipping">R$ 0,00</span>
+                        </div>
+                        <div class="summary-line" id="modal-discount-line" style="display: none;">
+                            <span>Desconto</span>
+                            <span class="discount-value" id="modal-discount">- R$ 0,00</span>
+                        </div>
+                        <div class="summary-divider"></div>
+                        <div class="summary-total">
+                            <span>Total</span>
+                            <span id="modal-total">R$ 0,00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-modal-actions">
+                    <button class="btn btn-secondary" id="track-order-btn">
+                        <i class="fas fa-truck"></i> Rastrear Pedido
+                    </button>
+                    <button class="btn btn-secondary" id="invoice-btn">
+                        <i class="fas fa-file-invoice"></i> Baixar Nota Fiscal
+                    </button>
+                    <button class="btn btn-outline" id="help-btn">
+                        <i class="fas fa-question-circle"></i> Ajuda
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Rastreamento -->
+    <div id="tracking-modal" class="modal">
+        <div class="modal-content tracking-modal-content">
+            <span class="close-modal">&times;</span>
+            
+            <h2>Rastreamento do Pedido</h2>
+            <p class="tracking-code">Código de Rastreio: <strong id="tracking-code">BR123456789BR</strong></p>
+
+            <div class="tracking-timeline">
+                <div class="tracking-item completed">
+                    <div class="tracking-icon"><i class="fas fa-check"></i></div>
+                    <div class="tracking-info">
+                        <h4>Pedido Confirmado</h4>
+                        <p>23/12/2025 - 10:30</p>
+                        <span>Seu pedido foi confirmado e está sendo preparado</span>
+                    </div>
+                </div>
+
+                <div class="tracking-item completed">
+                    <div class="tracking-icon"><i class="fas fa-box"></i></div>
+                    <div class="tracking-info">
+                        <h4>Pedido Enviado</h4>
+                        <p>23/12/2025 - 15:45</p>
+                        <span>Seu pedido foi despachado para entrega</span>
+                    </div>
+                </div>
+
+                <div class="tracking-item active">
+                    <div class="tracking-icon"><i class="fas fa-truck"></i></div>
+                    <div class="tracking-info">
+                        <h4>Em Trânsito</h4>
+                        <p>24/12/2025 - 08:20</p>
+                        <span>Seu pedido está a caminho</span>
+                    </div>
+                </div>
+
+                <div class="tracking-item">
+                    <div class="tracking-icon"><i class="fas fa-home"></i></div>
+                    <div class="tracking-info">
+                        <h4>Saiu para Entrega</h4>
+                        <p>Previsão: 27/12/2025</p>
+                        <span>Aguardando saída para entrega</span>
+                    </div>
+                </div>
+
+                <div class="tracking-item">
+                    <div class="tracking-icon"><i class="fas fa-check-circle"></i></div>
+                    <div class="tracking-info">
+                        <h4>Entregue</h4>
+                        <p>Previsão: 27/12/2025</p>
+                        <span>Aguardando entrega</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Glamour Beauty</h3>
+                    <p>Sua loja de moda e beleza com os melhores produtos e marcas do mercado.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Institucional</h4>
+                    <ul>
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Trabalhe Conosco</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Atendimento</h4>
+                    <ul>
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Trocas e Devoluções</a></li>
+                        <li><a href="#">Entrega</a></li>
+                        <li><a href="#">Formas de Pagamento</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> 0800 123 4567</li>
+                        <li><i class="fas fa-envelope"></i> contato@glamourbeauty.com.br</li>
+                        <li><i class="fas fa-clock"></i> Seg-Sex: 9h às 18h</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Glamour Beauty - Todos os direitos reservados</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-pix"></i>
+                    <i class="fas fa-barcode"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glamour Beauty - Moda & Beleza</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-bar-content">
+                    <span><i class="fas fa-truck"></i> Frete Grátis acima de R$ 199</span>
+                    <span><i class="fas fa-gift"></i> Ganhe 10% OFF na primeira compra</span>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-content">
+                    <div class="logo">
+                        <h1>Glamour Beauty</h1>
+                        <p>Moda & Beleza</p>
+                    </div>
+                    
+                    <div class="search-bar">
+                        <input type="text" id="search-input" placeholder="O que você procura?">
+                        <button id="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                    
+                    <div class="nav-actions">
+                        <a href="login.html" id="user-btn" class="nav-btn">
+                            <i class="fas fa-user"></i>
+                            <span id="user-name">Entrar</span>
+                        </a>
+                        <a href="carrinho.html" class="nav-btn">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-badge" id="cart-count">0</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="nav-menu">
+                    <a href="index.html" class="active">Home</a>
+                    <a href="produtos.html?categoria=perfumes">Perfumes</a>
+                    <a href="produtos.html?categoria=maquiagem">Maquiagem</a>
+                    <a href="produtos.html?categoria=skincare">Skincare</a>
+                    <a href="produtos.html?categoria=cabelos">Cabelos</a>
+                    <a href="produtos.html?categoria=corpo">Corpo & Banho</a>
+                    <a href="produtos.html">Todos os Produtos</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Banner -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Natal de Beleza</h2>
+                <p>Presentes especiais para quem você ama</p>
+                <a href="produtos.html" class="btn btn-primary">Conferir Ofertas</a>
+            </div>
+        </section>
+
+        <!-- Categorias em Destaque -->
+        <section class="categories">
+            <div class="container">
+                <h2 class="section-title">Compre por Categoria</h2>
+                <div class="category-grid">
+                    <div class="category-card" onclick="window.location.href='produtos.html?categoria=perfumes'">
+                        <div class="category-icon">
+                            <i class="fas fa-spray-can"></i>
+                        </div>
+                        <h3>Perfumes</h3>
+                        <p>Fragrâncias exclusivas</p>
+                    </div>
+                    <div class="category-card" onclick="window.location.href='produtos.html?categoria=maquiagem'">
+                        <div class="category-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Maquiagem</h3>
+                        <p>Realce sua beleza</p>
+                    </div>
+                    <div class="category-card" onclick="window.location.href='produtos.html?categoria=skincare'">
+                        <div class="category-icon">
+                            <i class="fas fa-hand-sparkles"></i>
+                        </div>
+                        <h3>Skincare</h3>
+                        <p>Cuidado com a pele</p>
+                    </div>
+                    <div class="category-card" onclick="window.location.href='produtos.html?categoria=cabelos'">
+                        <div class="category-icon">
+                            <i class="fas fa-pump-soap"></i>
+                        </div>
+                        <h3>Cabelos</h3>
+                        <p>Tratamentos especiais</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Produtos em Destaque -->
+        <section class="featured-products">
+            <div class="container">
+                <h2 class="section-title">Produtos em Destaque</h2>
+                <div class="product-grid" id="featured-products">
+                    <!-- Produtos serão carregados via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Banner Promocional -->
+        <section class="promo-banner">
+            <div class="container">
+                <div class="promo-content">
+                    <h2>Cadastre-se e Ganhe 10% OFF</h2>
+                    <p>Na sua primeira compra + frete grátis</p>
+                    <a href="login.html" class="btn btn-secondary">Cadastrar Agora</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefícios -->
+        <section class="benefits">
+            <div class="container">
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <i class="fas fa-shipping-fast"></i>
+                        <h3>Entrega Rápida</h3>
+                        <p>Frete grátis acima de R$ 199</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Compra Segura</h3>
+                        <p>Ambiente 100% seguro</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-undo"></i>
+                        <h3>Troca Fácil</h3>
+                        <p>30 dias para trocar</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-credit-card"></i>
+                        <h3>Parcele sem Juros</h3>
+                        <p>Em até 6x sem juros</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Glamour Beauty</h3>
+                    <p>Sua loja de moda e beleza com os melhores produtos e marcas do mercado.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Institucional</h4>
+                    <ul>
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Trabalhe Conosco</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Atendimento</h4>
+                    <ul>
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Trocas e Devoluções</a></li>
+                        <li><a href="#">Entrega</a></li>
+                        <li><a href="#">Formas de Pagamento</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> 0800 123 4567</li>
+                        <li><i class="fas fa-envelope"></i> contato@glamourbeauty.com.br</li>
+                        <li><i class="fas fa-clock"></i> Seg-Sex: 9h às 18h</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Glamour Beauty - Todos os direitos reservados</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-pix"></i>
+                    <i class="fas fa-barcode"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

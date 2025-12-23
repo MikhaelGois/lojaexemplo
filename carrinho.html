@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - Glamour Beauty</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-bar-content">
+                    <span><i class="fas fa-truck"></i> Frete Grátis acima de R$ 199</span>
+                    <span><i class="fas fa-gift"></i> Ganhe 10% OFF na primeira compra</span>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-content">
+                    <div class="logo">
+                        <h1>Glamour Beauty</h1>
+                        <p>Moda & Beleza</p>
+                    </div>
+                    
+                    <div class="search-bar">
+                        <input type="text" id="search-input" placeholder="O que você procura?">
+                        <button id="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                    
+                    <div class="nav-actions">
+                        <a href="login.html" id="user-btn" class="nav-btn">
+                            <i class="fas fa-user"></i>
+                            <span id="user-name">Entrar</span>
+                        </a>
+                        <a href="carrinho.html" class="nav-btn active">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-badge" id="cart-count">0</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="nav-menu">
+                    <a href="index.html">Home</a>
+                    <a href="produtos.html?categoria=perfumes">Perfumes</a>
+                    <a href="produtos.html?categoria=maquiagem">Maquiagem</a>
+                    <a href="produtos.html?categoria=skincare">Skincare</a>
+                    <a href="produtos.html?categoria=cabelos">Cabelos</a>
+                    <a href="produtos.html?categoria=corpo">Corpo & Banho</a>
+                    <a href="produtos.html">Todos os Produtos</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="cart-page">
+        <div class="container">
+            <h1>Meu Carrinho</h1>
+
+            <!-- Carrinho Vazio -->
+            <div id="empty-cart" class="empty-cart" style="display: none;">
+                <i class="fas fa-shopping-cart"></i>
+                <h2>Seu carrinho está vazio</h2>
+                <p>Adicione produtos para começar suas compras!</p>
+                <a href="produtos.html" class="btn btn-primary">Continuar Comprando</a>
+            </div>
+
+            <!-- Carrinho com Produtos -->
+            <div id="cart-content" class="cart-container">
+                <div class="cart-main">
+                    <!-- Progress Steps -->
+                    <div class="checkout-steps">
+                        <div class="step active">
+                            <span class="step-number">1</span>
+                            <span class="step-label">Carrinho</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">2</span>
+                            <span class="step-label">Identificação</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">3</span>
+                            <span class="step-label">Pagamento</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-number">4</span>
+                            <span class="step-label">Confirmação</span>
+                        </div>
+                    </div>
+
+                    <!-- Cart Items -->
+                    <div class="cart-items" id="cart-items">
+                        <!-- Produtos serão carregados via JavaScript -->
+                    </div>
+
+                    <!-- Cupom de Desconto -->
+                    <div class="coupon-section">
+                        <h3>Cupom de Desconto</h3>
+                        <div class="coupon-input">
+                            <input type="text" id="coupon-code" placeholder="Digite o código do cupom">
+                            <button class="btn btn-secondary" id="apply-coupon">Aplicar</button>
+                        </div>
+                        <div id="coupon-message" class="coupon-message"></div>
+                    </div>
+
+                    <!-- Calcular Frete -->
+                    <div class="shipping-calculator">
+                        <h3>Calcular Frete e Prazo</h3>
+                        <div class="shipping-input">
+                            <input type="text" id="cep-input" placeholder="00000-000" maxlength="9">
+                            <button class="btn btn-secondary" id="calculate-shipping">Calcular</button>
+                        </div>
+                        <div id="shipping-options" class="shipping-options"></div>
+                    </div>
+                </div>
+
+                <!-- Cart Summary -->
+                <aside class="cart-summary">
+                    <h3>Resumo do Pedido</h3>
+                    
+                    <div class="summary-line">
+                        <span>Subtotal (<span id="summary-items">0</span> itens)</span>
+                        <span id="summary-subtotal">R$ 0,00</span>
+                    </div>
+
+                    <div class="summary-line" id="discount-line" style="display: none;">
+                        <span>Desconto (<span id="discount-code"></span>)</span>
+                        <span class="discount-value" id="summary-discount">- R$ 0,00</span>
+                    </div>
+
+                    <div class="summary-line" id="shipping-line">
+                        <span>Frete</span>
+                        <span id="summary-shipping">A calcular</span>
+                    </div>
+
+                    <div class="summary-divider"></div>
+
+                    <div class="summary-total">
+                        <span>Total</span>
+                        <span id="summary-total">R$ 0,00</span>
+                    </div>
+
+                    <div class="installment-info">
+                        <p>ou em até 6x de <strong id="installment-value">R$ 0,00</strong> sem juros</p>
+                    </div>
+
+                    <button class="btn btn-primary btn-large" id="proceed-checkout">
+                        Finalizar Compra
+                    </button>
+
+                    <a href="produtos.html" class="continue-shopping">
+                        <i class="fas fa-arrow-left"></i> Continuar Comprando
+                    </a>
+
+                    <div class="cart-benefits">
+                        <p><i class="fas fa-shield-alt"></i> Compra 100% segura</p>
+                        <p><i class="fas fa-undo"></i> Troca grátis em até 30 dias</p>
+                        <p><i class="fas fa-truck"></i> Frete grátis acima de R$ 199</p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Glamour Beauty</h3>
+                    <p>Sua loja de moda e beleza com os melhores produtos e marcas do mercado.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Institucional</h4>
+                    <ul>
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Trabalhe Conosco</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Atendimento</h4>
+                    <ul>
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Trocas e Devoluções</a></li>
+                        <li><a href="#">Entrega</a></li>
+                        <li><a href="#">Formas de Pagamento</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> 0800 123 4567</li>
+                        <li><i class="fas fa-envelope"></i> contato@glamourbeauty.com.br</li>
+                        <li><i class="fas fa-clock"></i> Seg-Sex: 9h às 18h</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Glamour Beauty - Todos os direitos reservados</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-pix"></i>
+                    <i class="fas fa-barcode"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
