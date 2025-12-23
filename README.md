@@ -198,6 +198,11 @@ Os seguintes dados são salvos no `localStorage`:
 - [ ] Sistema de avaliações de produtos
 - [ ] Lista de desejos
 - [ ] Comparação de produtos
+
+## 👤 Autor
+
+- Desenvolvido por [Mikhael Gois](https://portfoliomikhael.web.app/portfolio.html)
+- Código no GitHub: https://github.com/MikhaelGois/lojaexemplo
 - [ ] Chat de atendimento
 - [ ] Sistema de pontos/fidelidade
 - [ ] Newsletter
