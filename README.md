@@ -232,10 +232,6 @@ Para usar em produção real, seria necessário:
 
 Projeto de demonstração - Uso educacional
 
-## 👨‍💻 Desenvolvido por
-
-GitHub Copilot com Claude Sonnet 4.5
-
 ---
 
 **Ana's Beauty** - Sua loja de moda e beleza 💄✨
