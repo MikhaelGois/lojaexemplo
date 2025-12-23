@@ -844,7 +844,7 @@ function mostrarConfirmacao(pedido) {
 }
 
 function gerarCodigoPix() {
-    return '00020126580014br.gov.bcb.pix0136' + Math.random().toString(36).substring(2, 15) + '520400005303986540' + calcularTotal().toFixed(2) + '5802BR5925Glamour Beauty6009Sao Paulo62070503***6304';
+    return '00020126580014br.gov.bcb.pix0136' + Math.random().toString(36).substring(2, 15) + '520400005303986540' + calcularTotal().toFixed(2) + '5802BR5925Ana\'s Beauty6009Sao Paulo62070503***6304';
 }
 
 function formatarMetodoPagamento(metodo) {

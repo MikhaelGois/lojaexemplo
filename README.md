@@ -1,4 +1,4 @@
-# 🛍️ Glamour Beauty - Loja E-commerce
+# 🛍️ Ana's Beauty - Loja E-commerce
 
 Loja de moda e beleza completa desenvolvida com HTML, CSS e JavaScript puro, inspirada no site do Boticário.
 
@@ -233,4 +233,4 @@ GitHub Copilot com Claude Sonnet 4.5
 
 ---
 
-**Glamour Beauty** - Sua loja de moda e beleza 💄✨
+**Ana's Beauty** - Sua loja de moda e beleza 💄✨
